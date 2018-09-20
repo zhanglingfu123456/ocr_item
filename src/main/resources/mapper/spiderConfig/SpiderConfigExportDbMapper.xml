@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiguess.realtimePriceService.IDao.spiderConfigDao.SpiderConfigExportDbMapper">
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="db_type" jdbcType="VARCHAR" property="dbType" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="charset" jdbcType="VARCHAR" property="charset" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="db_name" jdbcType="VARCHAR" property="dbName" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="field_mapping" jdbcType="VARCHAR" property="fieldMapping" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_id, db_type, url, charset, username, password, db_name, table_name, field_mapping, 
+    create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db (id, app_id, db_type, 
+      url, charset, username, 
+      password, db_name, table_name, 
+      field_mapping, create_time, update_time, 
+      is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{appId,jdbcType=INTEGER}, #{dbType,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{charset,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, 
+      #{fieldMapping,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="dbType != null">
+        db_type,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="charset != null">
+        charset,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="dbName != null">
+        db_name,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    <set>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        db_type = #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        charset = #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        db_name = #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    set app_id = #{appId,jdbcType=INTEGER},
+      db_type = #{dbType,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      charset = #{charset,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      db_name = #{dbName,jdbcType=VARCHAR},
+      table_name = #{tableName,jdbcType=VARCHAR},
+      field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="db_type" jdbcType="VARCHAR" property="dbType" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="charset" jdbcType="VARCHAR" property="charset" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="db_name" jdbcType="VARCHAR" property="dbName" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="field_mapping" jdbcType="VARCHAR" property="fieldMapping" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_id, db_type, url, charset, username, password, db_name, table_name, field_mapping, 
+    create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db (id, app_id, db_type, 
+      url, charset, username, 
+      password, db_name, table_name, 
+      field_mapping, create_time, update_time, 
+      is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{appId,jdbcType=INTEGER}, #{dbType,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{charset,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, 
+      #{fieldMapping,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="dbType != null">
+        db_type,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="charset != null">
+        charset,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="dbName != null">
+        db_name,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    <set>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        db_type = #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        charset = #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        db_name = #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    set app_id = #{appId,jdbcType=INTEGER},
+      db_type = #{dbType,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      charset = #{charset,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      db_name = #{dbName,jdbcType=VARCHAR},
+      table_name = #{tableName,jdbcType=VARCHAR},
+      field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="db_type" jdbcType="VARCHAR" property="dbType" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="charset" jdbcType="VARCHAR" property="charset" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="db_name" jdbcType="VARCHAR" property="dbName" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="field_mapping" jdbcType="VARCHAR" property="fieldMapping" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_id, db_type, url, charset, username, password, db_name, table_name, field_mapping, 
+    create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_config_export_db
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db (id, app_id, db_type, 
+      url, charset, username, 
+      password, db_name, table_name, 
+      field_mapping, create_time, update_time, 
+      is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{appId,jdbcType=INTEGER}, #{dbType,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{charset,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{tableName,jdbcType=VARCHAR}, 
+      #{fieldMapping,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    insert into spider_config_export_db
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="dbType != null">
+        db_type,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="charset != null">
+        charset,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="dbName != null">
+        db_name,
+      </if>
+      <if test="tableName != null">
+        table_name,
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    <set>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="dbType != null">
+        db_type = #{dbType,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="charset != null">
+        charset = #{charset,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dbName != null">
+        db_name = #{dbName,jdbcType=VARCHAR},
+      </if>
+      <if test="tableName != null">
+        table_name = #{tableName,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldMapping != null">
+        field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigExportDb">
+    update spider_config_export_db
+    set app_id = #{appId,jdbcType=INTEGER},
+      db_type = #{dbType,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      charset = #{charset,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      db_name = #{dbName,jdbcType=VARCHAR},
+      table_name = #{tableName,jdbcType=VARCHAR},
+      field_mapping = #{fieldMapping,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

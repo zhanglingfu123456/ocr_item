@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiguess.realtimePriceService.IDao.spiderConfigDao.SpiderConfigAppMapper">
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigApp">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="app_name" jdbcType="VARCHAR" property="appName" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="business_priority" jdbcType="TINYINT" property="businessPriority" />
+    <result column="priority" jdbcType="TINYINT" property="priority" />
+    <result column="parent_list_app_id" jdbcType="INTEGER" property="parentListAppId" />
+    <result column="domain" jdbcType="VARCHAR" property="domain" />
+    <result column="model_type" jdbcType="TINYINT" property="modelType" />
+    <result column="selector_type" jdbcType="TINYINT" property="selectorType" />
+    <result column="scan_url" jdbcType="VARCHAR" property="scanUrl" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
+    <result column="macro_values" jdbcType="VARCHAR" property="macroValues" />
+    <result column="list_selector" jdbcType="VARCHAR" property="listSelector" />
+    <result column="schedule_rule" jdbcType="VARCHAR" property="scheduleRule" />
+    <result column="header_config" jdbcType="VARCHAR" property="headerConfig" />
+    <result column="other_config" jdbcType="VARCHAR" property="otherConfig" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_name, category_id, business_priority, priority, parent_list_app_id, domain, 
+    model_type, selector_type, scan_url, params, macro_values, list_selector, schedule_rule, 
+    header_config, other_config, status, create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_config_app
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_config_app
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigApp">
+    insert into spider_config_app (id, app_name, category_id, 
+      business_priority, priority, parent_list_app_id, 
+      domain, model_type, selector_type, 
+      scan_url, params, macro_values, 
+      list_selector, schedule_rule, header_config, 
+      other_config, status, create_time, 
+      update_time, is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{appName,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, 
+      #{businessPriority,jdbcType=TINYINT}, #{priority,jdbcType=TINYINT}, #{parentListAppId,jdbcType=INTEGER}, 
+      #{domain,jdbcType=VARCHAR}, #{modelType,jdbcType=TINYINT}, #{selectorType,jdbcType=TINYINT}, 
+      #{scanUrl,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, #{macroValues,jdbcType=VARCHAR}, 
+      #{listSelector,jdbcType=VARCHAR}, #{scheduleRule,jdbcType=VARCHAR}, #{headerConfig,jdbcType=VARCHAR}, 
+      #{otherConfig,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigApp">
+    insert into spider_config_app
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appName != null">
+        app_name,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="businessPriority != null">
+        business_priority,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="parentListAppId != null">
+        parent_list_app_id,
+      </if>
+      <if test="domain != null">
+        domain,
+      </if>
+      <if test="modelType != null">
+        model_type,
+      </if>
+      <if test="selectorType != null">
+        selector_type,
+      </if>
+      <if test="scanUrl != null">
+        scan_url,
+      </if>
+      <if test="params != null">
+        params,
+      </if>
+      <if test="macroValues != null">
+        macro_values,
+      </if>
+      <if test="listSelector != null">
+        list_selector,
+      </if>
+      <if test="scheduleRule != null">
+        schedule_rule,
+      </if>
+      <if test="headerConfig != null">
+        header_config,
+      </if>
+      <if test="otherConfig != null">
+        other_config,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appName != null">
+        #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="businessPriority != null">
+        #{businessPriority,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="parentListAppId != null">
+        #{parentListAppId,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null">
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="modelType != null">
+        #{modelType,jdbcType=TINYINT},
+      </if>
+      <if test="selectorType != null">
+        #{selectorType,jdbcType=TINYINT},
+      </if>
+      <if test="scanUrl != null">
+        #{scanUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="macroValues != null">
+        #{macroValues,jdbcType=VARCHAR},
+      </if>
+      <if test="listSelector != null">
+        #{listSelector,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleRule != null">
+        #{scheduleRule,jdbcType=VARCHAR},
+      </if>
+      <if test="headerConfig != null">
+        #{headerConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="otherConfig != null">
+        #{otherConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigApp">
+    update spider_config_app
+    <set>
+      <if test="appName != null">
+        app_name = #{appName,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="businessPriority != null">
+        business_priority = #{businessPriority,jdbcType=TINYINT},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=TINYINT},
+      </if>
+      <if test="parentListAppId != null">
+        parent_list_app_id = #{parentListAppId,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null">
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="modelType != null">
+        model_type = #{modelType,jdbcType=TINYINT},
+      </if>
+      <if test="selectorType != null">
+        selector_type = #{selectorType,jdbcType=TINYINT},
+      </if>
+      <if test="scanUrl != null">
+        scan_url = #{scanUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="params != null">
+        params = #{params,jdbcType=VARCHAR},
+      </if>
+      <if test="macroValues != null">
+        macro_values = #{macroValues,jdbcType=VARCHAR},
+      </if>
+      <if test="listSelector != null">
+        list_selector = #{listSelector,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleRule != null">
+        schedule_rule = #{scheduleRule,jdbcType=VARCHAR},
+      </if>
+      <if test="headerConfig != null">
+        header_config = #{headerConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="otherConfig != null">
+        other_config = #{otherConfig,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigApp">
+    update spider_config_app
+    set app_name = #{appName,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      business_priority = #{businessPriority,jdbcType=TINYINT},
+      priority = #{priority,jdbcType=TINYINT},
+      parent_list_app_id = #{parentListAppId,jdbcType=INTEGER},
+      domain = #{domain,jdbcType=VARCHAR},
+      model_type = #{modelType,jdbcType=TINYINT},
+      selector_type = #{selectorType,jdbcType=TINYINT},
+      scan_url = #{scanUrl,jdbcType=VARCHAR},
+      params = #{params,jdbcType=VARCHAR},
+      macro_values = #{macroValues,jdbcType=VARCHAR},
+      list_selector = #{listSelector,jdbcType=VARCHAR},
+      schedule_rule = #{scheduleRule,jdbcType=VARCHAR},
+      header_config = #{headerConfig,jdbcType=VARCHAR},
+      other_config = #{otherConfig,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

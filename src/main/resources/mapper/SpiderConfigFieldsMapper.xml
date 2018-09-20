@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiguess.realtimePriceService.IDao.spiderConfigDao.SpiderConfigFieldsMapper">
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigFields">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="app_id" jdbcType="INTEGER" property="appId" />
+    <result column="field_name" jdbcType="VARCHAR" property="fieldName" />
+    <result column="selector" jdbcType="VARCHAR" property="selector" />
+    <result column="required" jdbcType="TINYINT" property="required" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_deleted" jdbcType="TINYINT" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, app_id, field_name, selector, required, create_time, update_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_config_fields
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_config_fields
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigFields">
+    insert into spider_config_fields (id, app_id, field_name, 
+      selector, required, create_time, 
+      update_time, is_deleted)
+    values (#{id,jdbcType=INTEGER}, #{appId,jdbcType=INTEGER}, #{fieldName,jdbcType=VARCHAR}, 
+      #{selector,jdbcType=VARCHAR}, #{required,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigFields">
+    insert into spider_config_fields
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="fieldName != null">
+        field_name,
+      </if>
+      <if test="selector != null">
+        selector,
+      </if>
+      <if test="required != null">
+        required,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="fieldName != null">
+        #{fieldName,jdbcType=VARCHAR},
+      </if>
+      <if test="selector != null">
+        #{selector,jdbcType=VARCHAR},
+      </if>
+      <if test="required != null">
+        #{required,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigFields">
+    update spider_config_fields
+    <set>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=INTEGER},
+      </if>
+      <if test="fieldName != null">
+        field_name = #{fieldName,jdbcType=VARCHAR},
+      </if>
+      <if test="selector != null">
+        selector = #{selector,jdbcType=VARCHAR},
+      </if>
+      <if test="required != null">
+        required = #{required,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderConfigFields">
+    update spider_config_fields
+    set app_id = #{appId,jdbcType=INTEGER},
+      field_name = #{fieldName,jdbcType=VARCHAR},
+      selector = #{selector,jdbcType=VARCHAR},
+      required = #{required,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

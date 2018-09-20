@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiguess.realtimePriceService.IDao.spiderConfigDao.SpiderSourceFileCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderSourceFileCategory">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="all_nodes" jdbcType="VARCHAR" property="allNodes" />
+    <result column="file_category_rule" jdbcType="VARCHAR" property="fileCategoryRule" />
+    <result column="file_store" jdbcType="VARCHAR" property="fileStore" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, category_name, parent_id, all_nodes, file_category_rule, file_store, comment, 
+    create_time, update_time, is_delete
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from spider_source_file_category
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from spider_source_file_category
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderSourceFileCategory">
+    insert into spider_source_file_category (id, category_name, parent_id, 
+      all_nodes, file_category_rule, file_store, 
+      comment, create_time, update_time, 
+      is_delete)
+    values (#{id,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{parentId,jdbcType=INTEGER}, 
+      #{allNodes,jdbcType=VARCHAR}, #{fileCategoryRule,jdbcType=VARCHAR}, #{fileStore,jdbcType=VARCHAR}, 
+      #{comment,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderSourceFileCategory">
+    insert into spider_source_file_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="categoryName != null">
+        category_name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="allNodes != null">
+        all_nodes,
+      </if>
+      <if test="fileCategoryRule != null">
+        file_category_rule,
+      </if>
+      <if test="fileStore != null">
+        file_store,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="categoryName != null">
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="allNodes != null">
+        #{allNodes,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCategoryRule != null">
+        #{fileCategoryRule,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStore != null">
+        #{fileStore,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderSourceFileCategory">
+    update spider_source_file_category
+    <set>
+      <if test="categoryName != null">
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="allNodes != null">
+        all_nodes = #{allNodes,jdbcType=VARCHAR},
+      </if>
+      <if test="fileCategoryRule != null">
+        file_category_rule = #{fileCategoryRule,jdbcType=VARCHAR},
+      </if>
+      <if test="fileStore != null">
+        file_store = #{fileStore,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpiderSourceFileCategory">
+    update spider_source_file_category
+    set category_name = #{categoryName,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      all_nodes = #{allNodes,jdbcType=VARCHAR},
+      file_category_rule = #{fileCategoryRule,jdbcType=VARCHAR},
+      file_store = #{fileStore,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

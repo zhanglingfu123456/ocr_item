@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiguess.realtimePriceService.IDao.spiderConfigDao.SpStockMetricCNMapper">
+  <resultMap id="BaseResultMap" type="com.aiguess.realtimePriceService.entity.spiderConfig.SpStockMetricCN">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="stock_id" jdbcType="VARCHAR" property="stockId" />
+    <result column="stock_code" jdbcType="VARCHAR" property="stockCode" />
+    <result column="row_index" jdbcType="INTEGER" property="rowIndex" />
+    <result column="row_name" jdbcType="VARCHAR" property="rowName" />
+    <result column="year" jdbcType="SMALLINT" property="year" />
+    <result column="quarter" jdbcType="TINYINT" property="quarter" />
+    <result column="rquarter" jdbcType="VARCHAR" property="rquarter" />
+    <result column="cash" jdbcType="VARCHAR" property="cash" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="rdate_begin" jdbcType="DATE" property="rdateBegin" />
+    <result column="rdate_end" jdbcType="DATE" property="rdateEnd" />
+    <result column="value" jdbcType="DOUBLE" property="value" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="spider_source" jdbcType="VARCHAR" property="spiderSource" />
+    <result column="metric_id" jdbcType="INTEGER" property="metricId" />
+    <result column="sheet_type" jdbcType="INTEGER" property="sheetType" />
+    <result column="unique_key" jdbcType="VARCHAR" property="uniqueKey" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, stock_id, stock_code, row_index, row_name, year, quarter, rquarter, cash, unit, 
+    rdate_begin, rdate_end, value, update_time, spider_source, metric_id, sheet_type, 
+    unique_key
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sp_stockmetric_cn
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sp_stockmetric_cn
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpStockMetricCN">
+    insert into sp_stockmetric_cn (id, stock_id, stock_code, 
+      row_index, row_name, year, 
+      quarter, rquarter, cash, 
+      unit, rdate_begin, rdate_end, 
+      value, update_time, spider_source, 
+      metric_id, sheet_type, unique_key
+      )
+    values (#{id,jdbcType=INTEGER}, #{stockId,jdbcType=VARCHAR}, #{stockCode,jdbcType=VARCHAR}, 
+      #{rowIndex,jdbcType=INTEGER}, #{rowName,jdbcType=VARCHAR}, #{year,jdbcType=SMALLINT}, 
+      #{quarter,jdbcType=TINYINT}, #{rquarter,jdbcType=VARCHAR}, #{cash,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{rdateBegin,jdbcType=DATE}, #{rdateEnd,jdbcType=DATE}, 
+      #{value,jdbcType=DOUBLE}, #{updateTime,jdbcType=TIMESTAMP}, #{spiderSource,jdbcType=VARCHAR}, 
+      #{metricId,jdbcType=INTEGER}, #{sheetType,jdbcType=INTEGER}, #{uniqueKey,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpStockMetricCN">
+    insert into sp_stockmetric_cn
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="stockId != null">
+        stock_id,
+      </if>
+      <if test="stockCode != null">
+        stock_code,
+      </if>
+      <if test="rowIndex != null">
+        row_index,
+      </if>
+      <if test="rowName != null">
+        row_name,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="quarter != null">
+        quarter,
+      </if>
+      <if test="rquarter != null">
+        rquarter,
+      </if>
+      <if test="cash != null">
+        cash,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="rdateBegin != null">
+        rdate_begin,
+      </if>
+      <if test="rdateEnd != null">
+        rdate_end,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="spiderSource != null">
+        spider_source,
+      </if>
+      <if test="metricId != null">
+        metric_id,
+      </if>
+      <if test="sheetType != null">
+        sheet_type,
+      </if>
+      <if test="uniqueKey != null">
+        unique_key,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stockId != null">
+        #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCode != null">
+        #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rowIndex != null">
+        #{rowIndex,jdbcType=INTEGER},
+      </if>
+      <if test="rowName != null">
+        #{rowName,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=SMALLINT},
+      </if>
+      <if test="quarter != null">
+        #{quarter,jdbcType=TINYINT},
+      </if>
+      <if test="rquarter != null">
+        #{rquarter,jdbcType=VARCHAR},
+      </if>
+      <if test="cash != null">
+        #{cash,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rdateBegin != null">
+        #{rdateBegin,jdbcType=DATE},
+      </if>
+      <if test="rdateEnd != null">
+        #{rdateEnd,jdbcType=DATE},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=DOUBLE},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spiderSource != null">
+        #{spiderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="metricId != null">
+        #{metricId,jdbcType=INTEGER},
+      </if>
+      <if test="sheetType != null">
+        #{sheetType,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueKey != null">
+        #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpStockMetricCN">
+    update sp_stockmetric_cn
+    <set>
+      <if test="stockId != null">
+        stock_id = #{stockId,jdbcType=VARCHAR},
+      </if>
+      <if test="stockCode != null">
+        stock_code = #{stockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="rowIndex != null">
+        row_index = #{rowIndex,jdbcType=INTEGER},
+      </if>
+      <if test="rowName != null">
+        row_name = #{rowName,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        year = #{year,jdbcType=SMALLINT},
+      </if>
+      <if test="quarter != null">
+        quarter = #{quarter,jdbcType=TINYINT},
+      </if>
+      <if test="rquarter != null">
+        rquarter = #{rquarter,jdbcType=VARCHAR},
+      </if>
+      <if test="cash != null">
+        cash = #{cash,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="rdateBegin != null">
+        rdate_begin = #{rdateBegin,jdbcType=DATE},
+      </if>
+      <if test="rdateEnd != null">
+        rdate_end = #{rdateEnd,jdbcType=DATE},
+      </if>
+      <if test="value != null">
+        value = #{value,jdbcType=DOUBLE},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="spiderSource != null">
+        spider_source = #{spiderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="metricId != null">
+        metric_id = #{metricId,jdbcType=INTEGER},
+      </if>
+      <if test="sheetType != null">
+        sheet_type = #{sheetType,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueKey != null">
+        unique_key = #{uniqueKey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aiguess.realtimePriceService.entity.spiderConfig.SpStockMetricCN">
+    update sp_stockmetric_cn
+    set stock_id = #{stockId,jdbcType=VARCHAR},
+      stock_code = #{stockCode,jdbcType=VARCHAR},
+      row_index = #{rowIndex,jdbcType=INTEGER},
+      row_name = #{rowName,jdbcType=VARCHAR},
+      year = #{year,jdbcType=SMALLINT},
+      quarter = #{quarter,jdbcType=TINYINT},
+      rquarter = #{rquarter,jdbcType=VARCHAR},
+      cash = #{cash,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      rdate_begin = #{rdateBegin,jdbcType=DATE},
+      rdate_end = #{rdateEnd,jdbcType=DATE},
+      value = #{value,jdbcType=DOUBLE},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      spider_source = #{spiderSource,jdbcType=VARCHAR},
+      metric_id = #{metricId,jdbcType=INTEGER},
+      sheet_type = #{sheetType,jdbcType=INTEGER},
+      unique_key = #{uniqueKey,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
